@@ -257,14 +257,11 @@ function Main() {
         const filePath = await save({
             filters: [{
                 name: 'Export',
-                extensions: ['md']
+                extensions: ['json']
             }]
         });
         if (filePath) {
-            const content = session.messages
-                .map(msg => `**${msg.role}**:\n${msg.content}`)
-                .join('\n\n--------------------\n\n')
-            await writeTextFile(filePath!!, content)
+            await writeTextFile(filePath!!, JSON.stringify(session, null, 2))
         }
     }
 

@@ -132,3 +132,6 @@ yarn-error.log*
 next-env.d.ts
 
 tmp
+
+.yarn/
+.yarnrc.yml
